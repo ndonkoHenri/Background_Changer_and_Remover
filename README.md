@@ -1,0 +1,2 @@
+# ComputerVisionProjekt
+Background Removal Program
