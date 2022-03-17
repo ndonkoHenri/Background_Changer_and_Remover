@@ -1,5 +1,4 @@
 import os
-
 import cv2 as cv
 import cvzone
 from cvzone.SelfiSegmentationModule import SelfiSegmentation
@@ -7,8 +6,8 @@ import mediapipe as mp
 import numpy as np
 
 cap = cv.VideoCapture(0)
-# cap.set(3,240)
-# cap.set(4,180)
+cap.set(3, 640)  # Values are set because of the image format(640x480)
+cap.set(4, 480)
 segmentor = SelfiSegmentation()
 
 
@@ -17,8 +16,8 @@ def empty(x):
 
 
 cv.namedWindow("tb")
-cv.resizeWindow("tb", 300, 100)
-cv.createTrackbar("threshold", "tb", 10, 100, empty)
+cv.resizeWindow("tb", 400, 80)
+cv.createTrackbar("threshold", "tb", 15, 100, empty)
 images_location = "bg_images"
 img_files_bg = os.listdir(images_location)
 fpsReader = cvzone.FPS()
@@ -39,12 +38,11 @@ while True:
     cv.imshow("Image", img_stack)
     key = cv.waitKey(1)
     if key == ord('q'):
-        # cv.imwrite(f"{bg_index}",img_stack)
         break
     elif key == ord('n'):
-        bg_index = bg_index + 1 if 0<= bg_index < len(img_files_bg)-1 else 0
+        bg_index = bg_index + 1 if 0 <= bg_index < len(img_files_bg) - 1 else 0
     elif key == ord('p'):
-        bg_index = bg_index - 1 if 0<= bg_index < len(img_files_bg)-1 else 0
+        bg_index = bg_index - 1 if 0 <= bg_index < len(img_files_bg) - 1 else 0
 
 
 cv.destroyAllWindows()
