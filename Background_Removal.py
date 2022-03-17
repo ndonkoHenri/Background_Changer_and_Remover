@@ -41,11 +41,11 @@ while True:
     if key == ord('q'):  # Checks if the key pressed was 'q' (To quit the program)
         break  # Breaks out and exits the program
     elif key == ord('n'):  # Checks if the key pressed was 'n' (for the <<Next>> image)
-        bg_index = bg_index + 1 if 0 <= bg_index < len(
-            img_files_bg) - 1 else 0  # checks the index and moves to the "N"ext Background
+        # checks the index and moves to the "N"ext Background
+        bg_index = bg_index + 1 if 0 <= bg_index < len(img_files_bg) - 1 else 0
     elif key == ord('p'):  # Checks if the key pressed was 'p' (for the <<Previous>> image)
-        bg_index = bg_index - 1 if 0 <= bg_index < len(
-            img_files_bg) - 1 else 0  # checks the index and moves to the "P"revious Background
+        # checks the index and moves to the "P"revious Background
+        bg_index = bg_index - 1 if 0 <= bg_index < len(img_files_bg) - 1 else 0
 
 cap.release()  # Releases the webcam after break of the program
 cv.destroyAllWindows()  # Destroys all opened windows present (Trackbars, webcam Output..)
