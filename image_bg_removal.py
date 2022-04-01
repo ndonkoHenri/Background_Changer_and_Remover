@@ -3,7 +3,29 @@ import cv2
 import cvzone
 from cvzone.SelfiSegmentationModule import SelfiSegmentation
 
+# -------------------------------- #
+dark = cv2.imread("bg_images/img_dark.png")  # Reads the image with the dark background
+cv2.putText(dark, "COMMANDS: ", (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.95, (0, 255, 0), 1)
+cv2.putText(dark, "In your Program use the following...", (20, 40), cv2.FONT_HERSHEY_PLAIN, 0.95, (0, 255, 0), 1)
+cv2.putText(dark, "Press 'P' to Display the previous background-image!", (20, 60), cv2.FONT_HERSHEY_PLAIN, 0.95,
+            (0, 255, 0), 1)
+cv2.putText(dark, "Press 'N' to Display the Next background-image!", (20, 80), cv2.FONT_HERSHEY_PLAIN, 0.95,
+            (0, 255, 0), 1)
+cv2.putText(dark, "Press 'F' to Display the foreground-image forward!", (20, 100), cv2.FONT_HERSHEY_PLAIN, 0.95,
+            (0, 255, 0), 1)
+cv2.putText(dark, "Press 'B' to Display the foreground-image backward!", (20, 140), cv2.FONT_HERSHEY_PLAIN, 0.95,
+            (0, 255, 0), 1)
+cv2.putText(dark, "Press 'Q' to quit the BackGroundRemover Program!", (20, 120), cv2.FONT_HERSHEY_PLAIN, 0.95,
+            (0, 255, 0), 1)
+cv2.putText(dark, "Press any key to close this window and launch your program!", (20, 200), cv2.FONT_HERSHEY_PLAIN, 1.1,
+            (10, 255, 10), 1)
 
+cv2.imshow("Commands", dark)
+# IF a key is pressed, close the window and start the program
+key = cv2.waitKey(0)
+if key:
+    cv2.destroyWindow("Commands")
+# -------------------------------- #
 segmentor = SelfiSegmentation()  # Create an Instance of the Segmentation Class
 
 
